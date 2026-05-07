@@ -1,53 +1,51 @@
-# React + TypeScript + Vite
+# Analisador Léxico com AFD
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Analisador léxico baseado em autômato finito determinístico (AFD) para validar tokens de acordo com palavras adicionadas.
 
-Currently, two official plugins are available:
+## Como rodar
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. Clone o repositório
+2. Instale as dependências:
+   ```
+   npm install
+   ```
+3. Inicie o servidor de desenvolvimento:
+   ```
+   npm run dev
+   ```
+4. Abra http://localhost:5173 no navegador
 
-## React Compiler
+## Como funciona
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### AddToken
+Adicione palavras ao autômato. Cada palavra adicionada expande o AFD com novos estados e transições. Somente letras minúsculas são aceitas.
 
-## Expanding the ESLint configuration
+### LexicalAnalyzer
+Digite caracteres (a-z) um de cada vez. O analisador reconhece tokens válidos (aqueles que terminam em estados finais do autômato) ou os rejeita. Pressione espaço para validar o token ou backspace para voltar.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### TransitionTable
+Visualiza em tempo real o estado atual da máquina, as transições de estados e mostra quais células estão ativas durante a leitura.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Estrutura
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── App.tsx              # Componente principal
+├── components/
+│   ├── AddToken.tsx     # Formulário para adicionar palavras
+│   ├── LexicalAnalyzer.tsx  # Validador de tokens
+│   └── TransitionTable.tsx  # Tabela visual do AFD
+├── logic/
+│   └── automato.ts      # Implementação do AFD
+└── index.css            # Estilos globais
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Scripts
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
+- `npm run dev` - Inicia o servidor de desenvolvimento
+- `npm run build` - Compila para produção
+- `npm run lint` - Executa linter
+- `npm run preview` - Visualiza build de produção
 import reactDom from 'eslint-plugin-react-dom'
 
 export default defineConfig([
