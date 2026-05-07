@@ -1,0 +1,36 @@
+.transition-table {
+  display: grid;
+  gap: 16px;
+}
+
+.transition-table-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.transition-table-table th,
+.transition-table-table td {
+  border: 1px solid #444;
+  padding: 10px 8px;
+  min-width: 40px;
+}
+
+.transition-table-table th {
+  background: #111;
+  color: #eee;
+}
+
+.transition-table-cell {
+  background: white;
+  color: #1e1e1e;
+  transition: 0.2s ease;
+}
+
+.transition-table-cell-active {
+  background-color: #4dff88;
+}
+
+.transition-table-cell-error {
+  background-color: #ff4d4d;
+}

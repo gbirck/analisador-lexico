@@ -1,0 +1,32 @@
+.lexical-analyzer {
+  display: grid;
+  gap: 18px;
+}
+
+.lexical-analyzer-input {
+  width: 100%;
+  max-width: 420px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #111;
+  color: #fff;
+}
+
+.lexical-analyzer-status {
+  display: grid;
+  gap: 8px;
+}
+
+.lexical-analyzer-label {
+  font-weight: 700;
+}
+
+.lexical-analyzer-message {
+  margin: 0;
+  color: #a6a6a6;
+}
+
+.lexical-analyzer-message-error {
+  color: #ff8a8a;
+}

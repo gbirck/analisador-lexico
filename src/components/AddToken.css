@@ -1,0 +1,75 @@
+.add-token {
+  display: grid;
+  gap: 16px;
+}
+
+.add-token-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.add-token-input,
+.add-token-button {
+  min-height: 44px;
+  border-radius: 8px;
+}
+
+.add-token-input {
+  flex: 1;
+  min-width: 220px;
+  padding: 10px 14px;
+  border: 1px solid #444;
+  background: #111;
+  color: #fff;
+}
+
+.add-token-input:focus {
+  outline: 2px solid #7c5cff;
+}
+
+.add-token-button {
+  border: none;
+  padding: 0 18px;
+  background: #7c5cff;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.add-token-button:hover {
+  background: #5a3fff;
+}
+
+.add-token-list {
+  display: grid;
+  gap: 10px;
+}
+
+.add-token-list h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.add-token-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.add-token-list-item {
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #111;
+  color: #fff;
+  word-break: break-word;
+}
+
+@media (max-width: 640px) {
+  .add-token-form {
+    flex-direction: column;
+  }
+}
